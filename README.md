@@ -45,6 +45,6 @@ A aplicação irá rodar por padrão em http://localhost:3000.
 - DELETE /partners/:id — Remove uma empresa
 - PATCH /partners/:id — Atualiza uma empresa
 
-##Observações
-Certifique-se de que o package.json contém: "type": "module" para habilitar ES Modules.
-O projeto está pronto para integração com banco de dados MongoDB via Mongoose (ajuste o arquivo database.js conforme necessário).
+## Observações
+- Certifique-se de que o package.json contém: "type": "module" para habilitar ES Modules.
+- O projeto está pronto para integração com banco de dados MongoDB via Mongoose (ajuste o arquivo database.js conforme necessário).
