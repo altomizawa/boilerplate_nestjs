@@ -10,15 +10,15 @@ Este projeto é um boilerplate simples para uma API RESTful utilizando Express, 
 
 ## Estrutura de Pastas
 - controllers/   # Lógica dos endpoints
-models/        # Modelos de dados (ex: Mongoose)
-routes/        # Rotas da aplicação
-lib/           # Utilitários e configurações (ex: database.js)
-app.js         # Ponto de entrada da aplicação
+- models/        # Modelos de dados (ex: Mongoose)
+- routes/        # Rotas da aplicação
+- lib/           # Utilitários e configurações (ex: database.js)
+- app.js         # Ponto de entrada da aplicação
 
 ## Instalação
-git clone <repo-url>
-cd boilerplate_nestjs
-npm install
+- git clone <repo-url>
+- cd boilerplate_nestjs
+- npm install
 
 ## Instalação do Banco de Dados MongoDB
 1. Instale o MongoDB localmente ou crie uma conta no MongoDB Atlas.
@@ -32,19 +32,19 @@ npm install
 ## Como rodar
 A aplicação irá rodar por padrão em http://localhost:3000.
 
-Endpoints principais
-PRODUTOS:
-GET /products — Lista todos os produtos
-POST /products — Adiciona um produto
-DELETE /products/:id — Remove um produto
-PATCH /products/:id — Atualiza um produto
+## Endpoints principais
+### PRODUTOS:
+- GET /products — Lista todos os produtos
+- POST /products — Adiciona um produto
+- DELETE /products/:id — Remove um produto
+- PATCH /products/:id — Atualiza um produto
 
-EMPRESAS
-GET /partners — Lista todas as empresas
-POST /partners — Adiciona uma empresa
-DELETE /partners/:id — Remove uma empresa
-PATCH /partners/:id — Atualiza uma empresa
+### EMPRESAS
+- GET /partners — Lista todas as empresas
+- POST /partners — Adiciona uma empresa
+- DELETE /partners/:id — Remove uma empresa
+- PATCH /partners/:id — Atualiza uma empresa
 
-Observações
+##Observações
 Certifique-se de que o package.json contém: "type": "module" para habilitar ES Modules.
 O projeto está pronto para integração com banco de dados MongoDB via Mongoose (ajuste o arquivo database.js conforme necessário).
