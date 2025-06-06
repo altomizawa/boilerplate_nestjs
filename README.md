@@ -19,6 +19,7 @@ Este projeto é um boilerplate simples para uma API RESTful utilizando Express, 
 - git clone <repo-url>
 - cd boilerplate_nestjs
 - npm install
+- Crie um arquivo .env com as seguintes variáveis: PORT = 3000 e MONGO_URI=(URI do MongoDB que vc criar)
 
 ## Instalação do Banco de Dados MongoDB
 1. Instale o MongoDB localmente ou crie uma conta no MongoDB Atlas.
