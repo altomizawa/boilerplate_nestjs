@@ -115,8 +115,4 @@ const deleteCompany = async (req, res) => {
 }
 
 
-
-
-
 export { getAllCompanies, addCompany, getCompanyById, updateCompany, deleteCompany }
-

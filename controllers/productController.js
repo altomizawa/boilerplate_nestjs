@@ -5,17 +5,17 @@ const getAllProducts = async (req, res) => {
     const products = await Product.find()
     if (products) {
       return res.status(200).send({
-        message: 'list all products',
-        products: products
+        status: 'success',
+        data: products
       })
     }
-    return res.status(400).send({
+    return res.status(404).send({
       message: 'products not found'
     })
   } catch (error) {
     console.log(error)
     return res.status(500).send({
-      message: 'products not found'
+      message: 'Internal Server Error',
     })
   }
 }
@@ -30,7 +30,7 @@ const addProduct = async (req, res) => {
   }
 
   try{
-    const product = new Product({
+    const product = await Product.create({
       name: name,
       price: price
     })
@@ -38,8 +38,8 @@ const addProduct = async (req, res) => {
     if (product) {
       product.save();
       return res.status(200).send({
-        message: 'product added',
-        product: product
+        status: 'success',
+        data: product
       })
     }
     return res.status(400).send({
@@ -48,7 +48,7 @@ const addProduct = async (req, res) => {
   } catch (error) {
     console.log(error)
     return res.status(500).send({
-      message: 'product not added'
+      message: 'Internal Server Error'
     })
   }
 }
@@ -59,8 +59,8 @@ const getProductById = async (req, res) => {
     const product = await Product.findById(id)
     if (product) {
       return res.status(200).send({
-        message: 'product found',
-        product: product
+        status: 'success',
+        data: product
       })
     }
     return res.status(400).send({
@@ -69,7 +69,7 @@ const getProductById = async (req, res) => {
   } catch (error) {
     console.log(error)
     return res.status(500).send({
-      message: 'product not found'
+      message: 'Internal Server Error'
     })
   }
 }
@@ -80,24 +80,25 @@ const updateProduct = async (req, res) => {
   try{
     const existingProduct = await Product.findOne({_id: id})
     if (!existingProduct) {
-      throw new Error({status: 404, message: "product not found"})
-
+      res.status(404).send({
+        message: 'product not found'
+      })
     }
     existingProduct.name = name || existingProduct.name
     existingProduct.price = price || existingProduct.price
     await existingProduct.save()
 
     res.status(200).send({
-      message: 'product updated',
-      product: existingProduct
+      status: 'success',
+      data: existingProduct
     })
   } catch (error) {
-    res.status(error.status).send({
-      message: error.message
+    console.log(error)
+    res.status(500).send({
+      message: 'Internal Server Error'
     })
   }
 }
-
 
 const deleteProduct = async (req, res) => {
   const id = req.params.id
@@ -110,15 +111,18 @@ const deleteProduct = async (req, res) => {
     }
     const deletedProduct = await Product.deleteOne({_id: id})
     if (!deletedProduct) {
-      throw new Error({status: 404, message: "product not deleted"})
+      return res.status(400).send({
+        message: 'product not deleted'
+      })
     }
     res.status(200).send({
-      message: 'product deleted',
-      product: existingProduct
+      status: 'success',
+      data: existingProduct
     })
   } catch (error) {
-    res.status(error.status).send({
-      message: error.message
+    console.log(error)
+    res.status(500).send({
+      message: 'Internal Server Error'
     })
   }
 }
