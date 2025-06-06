@@ -2,11 +2,11 @@
 Este projeto é um boilerplate simples para uma API RESTful utilizando Express, ES Modules e estrutura inspirada no NestJS.
 
 ## Funcionalidades
-CRUD de Produtos
-CRUD de Empresas
-Estrutura modular (controllers, models, routes)
-Uso de ES6 Modules (import/export)
-MONGODB cloud como banco de dados
+** CRUD de Produtos
+** CRUD de Empresas
+** Estrutura modular (controllers, models, routes)
+** Uso de ES6 Modules (import/export)
+** MONGODB cloud como banco de dados
 
 ## Estrutura de Pastas
 controllers/   # Lógica dos endpoints
